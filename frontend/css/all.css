@@ -224,6 +224,7 @@ form,fieldset{
 	display:block;
 	overflow:hidden;
 	cursor:pointer;
+	outline: none;
 
 }
 
@@ -234,6 +235,7 @@ form,fieldset{
 	background:url(../images/button-active.png) no-repeat -113px -2px;
 	margin:0 -21px 0 0;
 	padding:0 21px 0 0;
+	outline: none;
 	
 }
 .buttons li.active a em {top:40px;}
