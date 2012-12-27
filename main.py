@@ -73,31 +73,22 @@ def get_modules(section):
 			parser.get('module', 'name'), 
 			parser.get('module', 'desc') )
 		return pro
+		
 def frontend_fill():
 	'''This function is to build all the html document viewed
 	frontend_fill() هذه الدالة لبناء ملف الواجهة html '''
-	#TODO: تنظيم هذه الدالة وإختصارها XD
+	
 	html=open(app_dir + '/frontend/default.html', 'r')
 	html=html.read()
-	html=html.replace("{os}", get_info("operatingsystem"))
-	html=html.replace("{arc}", get_info("arc"))
-	html=html.replace("{processor}", get_info("processor"))
-	html=html.replace("{mem}", get_info("mem"))
-	html=html.replace("{gfx}", get_info("gfx"))
-	html=html.replace("{audio}", get_info("audio"))
-	html=html.replace("{eth}", get_info("eth"))
-	html=html.replace("{kernel}", get_info("kernel"))
-	html=html.replace("{host}", get_info("host"))
-	html=html.replace("{desk}", get_info("desk"))
+	#system information معلومات الجهاز
+	for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'eth', 'kernel', 'host', 'desk'] :
+		html=html.replace("{%s}" %(i), get_info(i))
+	#categories أقسام الإضافات
+	for i in ['packs', 'system', 'desktop', 'hardware', 'other'] :
+		html=html.replace("{%s_list}" %(i), get_modules(i))
 
-	html=html.replace("{packs_list}", get_modules("packs"))
-	html=html.replace("{system_list}", get_modules("system"))
-	html=html.replace("{desktop_list}", get_modules("desktop"))
-	html=html.replace("{hardware_list}", get_modules("hardware"))
-	html=html.replace("{other_list}", get_modules("other"))
 	return html
 	
-
 def main():	
 	#TODO: تنظيم أفضل لهذه الأوامر
 	window = gtk.Window()
