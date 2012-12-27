@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" >
+	<link media="all" rel="stylesheet" type="text/css" href="css/all.css" />
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.7.2.min.js"><\/script>');</script>
+	<script type="text/javascript" src="js/jquery.main.js"></script>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div id="content">
+			<div class="c1">
+
+				<div class="tabs">
+					<div id="tab-1" class="tab">
+						<article>
+							<div class="text-section">
+								<img id="solgan" src="icons/sys_info.png" />
+								<h1>System information</h1>
+								<p>This is a quick overview of your system..</p>
+							</div>
+						</article>
+						<div id="contents">
+						<h1>Computer</h1>
+						<p>Operating system: <span id="ty">{os}</span></p>
+						<p>Processor: <span id="ty">{processor}</span></p>
+						<p>Archticture: <span id="ty">{arc}</span></p>
+						<p>Ram: <span id="ty">{mem}</span></p>
+						<h1>Devices</h1>
+						<p>Graphics card: <span id="ty">{gfx}</span></p>
+						<p>Audio adapter: <span id="ty">{audio}</span></p>
+						<p>Ethernet : <span id="ty">{eth}</span></p>
+						<h1>Misc</h1>
+						<p>Host name : <span id="ty">{host}</span></p>
+						<p>Kernel : <span id="ty">{kernel}</span></p>
+						<p>Desktop : <span id="ty">{desk}</span></p>
+						</div>
+					</div>
+					<div id="tab-2" class="tab">
+						<article>
+							<div class="text-section">
+								<img id="solgan" src="icons/packages.png" />
+								<h1>Software & Packages</h1>
+								<p>Working with software, packages and sources..</p>
+							</div>
+						</article>
+						<div id="contents">
+							{packs_list}
+
+						</div>
+					</div>
+					<div id="tab-3" class="tab">
+						<article>
+							<div class="text-section">
+								<img id="solgan" src="icons/desktop.png" />
+								<h1>Desktop</h1>
+								<p>Manage your desktop environment!</p>
+							</div>
+						</article>
+						<div id="contents">
+						{desktop_list}
+						</div>
+					</div>
+					<div id="tab-4" class="tab">
+						<article>
+							<div class="text-section">
+								<img id="solgan" src="icons/system.png" />
+								<h1>System</h1>
+								<p>This is a set of useful tools for your system..</p>
+							</div>
+						</article>
+						<div id="contents">
+						{system_list}
+						</div>
+					</div>
+					<div id="tab-5" class="tab">
+						<article>
+							<div class="text-section">
+								<img id="solgan" src="icons/hardware.png" />
+								<h1>Hardware</h1>
+								<p>here you can use Hardware tools, install drivers..etc</p>
+							</div>
+						</article>
+						<div id="contents">
+						{hardware_list}
+						</div>
+					</div>
+					<div id="tab-6" class="tab">
+						<article>
+							<div class="text-section">
+								<img id="solgan" src="icons/other.png" />
+								<h1>Other tools</h1>
+								<p>all other tools that aren't related to any of these categories..</p>
+							</div>
+						</article>
+						<div id="contents">
+						{other_list}
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<aside id="sidebar">
+			<strong class="logo"><a onclick="changeTitle('about')" href="#"></a></strong>
+			<ul class="tabset buttons">
+				<li class="active">
+					<a href="#tab-1" class="ico1"><span>System information</span><em></em></a>
+					
+				</li>
+				<li>
+					<a href="#tab-2" class="ico2"><span>Software & Packages</span><em></em></a>
+					
+				</li>
+				<li>
+					<a href="#tab-3" class="ico3"><span>Desktop</span><em></em></a>
+					
+				</li>
+				<li>
+					<a href="#tab-4" class="ico4"><span>System</span><em></em></a>
+					
+				</li>
+				<li>
+					<a href="#tab-5" class="ico5"><span>Hardware</span><em></em></a>
+					
+				</li>
+				<li>
+					<a href="#tab-6" class="ico6"><span>Other tools</span><em></em></a>
+					
+				</li>
+			</ul>
+			<span class="shadow"></span>
+		</aside>
+	</div>
+<script type="text/javascript">
+function changeTitle(title) { document.title = title; document.title = 'none'; }
+</script>
+</body>
+</html>
