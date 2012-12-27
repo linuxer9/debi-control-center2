@@ -5,7 +5,7 @@ import os
 from ConfigParser import SafeConfigParser
 app_dir=os.getcwd()
 def execute(command):
-  '''this execute shell command and return output
+  	'''this execute shell command and return output
 	execute() هذه الدالة لتنفيذ أمر بالطرفية واخراج الناتج'''
 	p = os.popen(command)
 	return p.readline()
