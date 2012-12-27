@@ -1,0 +1,5 @@
+[module]
+name = Synaptic
+ico = example.png
+desc = Packages Manager
+command = gksu synaptic
