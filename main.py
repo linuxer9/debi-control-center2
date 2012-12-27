@@ -109,6 +109,10 @@ def main():
 	browser = webkit.WebView()
 	browser.connect("title-changed", functions)
 	browser.load_html_string(frontend_fill(), 'file://%s/frontend/' %(app_dir))
+	#no right click menu
+	settings = browser.get_settings()
+	settings.set_property('enable-default-context-menu', False)
+	browser.set_settings(settings) 
 	swindow = gtk.ScrolledWindow()
 	window.add(swindow)
 	swindow.add(browser)
