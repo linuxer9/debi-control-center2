@@ -3,6 +3,7 @@ import gtk
 import webkit
 import os
 from ConfigParser import SafeConfigParser
+from locale import getdefaultlocale
 app_dir=os.getcwd()
 def execute(command):
   	'''this execute shell command and return output
@@ -78,6 +79,10 @@ def frontend_fill():
 	
 	html=open(app_dir + '/frontend/default.html', 'r')
 	html=html.read()
+	if 'ar_' in getdefaultlocale()[0]:
+		html=html.replace("{css}", "ar")
+	else:
+		html=html.replace("{css}", "all")
 	#system information معلومات الجهاز
 	for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'eth', 'kernel', 'host', 'desk'] :
 		html=html.replace("{%s}" %(i), get_info(i))
