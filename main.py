@@ -4,6 +4,14 @@ import webkit
 import os
 from ConfigParser import SafeConfigParser
 from locale import getdefaultlocale
+import gettext
+if not os.path.isdir("./locale/"):
+	gettext.bindtextdomain('dcc', '/usr/share/locale/')
+else:
+	gettext.bindtextdomain('dcc', './locale/')
+gettext.textdomain('dcc')
+_ = gettext.gettext
+
 app_dir=os.getcwd()
 def execute(command):
   	'''this execute shell command and return output
@@ -22,7 +30,7 @@ def functions(widget, nom,ida):
         	about.set_program_name("debi control center")
         	about.set_version("0.1")
         	about.set_copyright("Mohamed Mohsen")
-        	about.set_comments("debi GNU/Linux control center")
+        	about.set_comments(_("debi GNU/Linux control center"))
         	about.set_website("http://debi.sf.net")
         	about.run()
         	about.destroy()
@@ -50,7 +58,7 @@ def get_modules(section):
 	'''
 	mod_dir=os.listdir("%s/modules/%s/" %(app_dir, section))
 	if mod_dir==[]:
-		return "<p>no modules found!</p>"
+		return "<p>" + _("no modules found!") + "</p>"
 	else:
 		parser = SafeConfigParser()
 		pro=""
@@ -83,6 +91,31 @@ def frontend_fill():
 		html=html.replace("{css}", "ar")
 	else:
 		html=html.replace("{css}", "all")
+	html=html.replace("{string_1}", _("System information"))
+	html=html.replace("{string_2}", _("This is a quick overview of your system.."))
+	html=html.replace("{string_3}", _("Computer"))
+	html=html.replace("{string_4}", _("Operating system: "))
+	html=html.replace("{string_5}", _("Processor: "))
+	html=html.replace("{string_6}", _("Archticture: "))
+	html=html.replace("{string_7}", _("Ram: "))
+	html=html.replace("{string_8}", _("Devices"))
+	html=html.replace("{string_9}", _("Graphics card: "))
+	html=html.replace("{string_10}", _("Audio adapter: "))
+	html=html.replace("{string_11}", _("Ethernet: "))
+	html=html.replace("{string_12}", _("Misc"))
+	html=html.replace("{string_13}", _("Host name: "))
+	html=html.replace("{string_14}", _("Kernel: "))
+	html=html.replace("{string_15}", _("Desktop: "))
+	html=html.replace("{string_16}", _("Software & Packages"))
+	html=html.replace("{string_17}", _("Working with software, packages and sources.."))
+	html=html.replace("{string_18}", _("Desktop"))
+	html=html.replace("{string_19}", _("Manage your desktop environment!"))
+	html=html.replace("{string_20}", _("System"))
+	html=html.replace("{string_21}", _("This is a set of useful tools for your system.."))
+	html=html.replace("{string_22}", _("Hardware"))
+	html=html.replace("{string_23}", _("here you can use Hardware tools, install drivers..etc"))
+	html=html.replace("{string_24}", _("Other tools"))
+	html=html.replace("{string_25}", _("all other tools that aren't related to any of these categories.."))
 	#system information معلومات الجهاز
 	for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'eth', 'kernel', 'host', 'desk'] :
 		html=html.replace("{%s}" %(i), get_info(i))
@@ -96,7 +129,7 @@ def main():
 	#TODO: تنظيم أفضل لهذه الأوامر
 	window = gtk.Window()
 	window.connect('destroy', gtk.main_quit)
-	window.set_title("debi control center")
+	window.set_title(_("debi control center"))
 	window.set_size_request(774, 540)
 	window.set_resizable(False)
 	window.set_position(gtk.WIN_POS_CENTER)
