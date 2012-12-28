@@ -14,8 +14,6 @@ def execute(command):
 def functions(widget, nom,ida):
 	'''This function is to receive functions from webkit
 	functions(widget, nom,ida) لاستقبال الأوامر والدوال من المتصفح'''
-	if ida=="non":
-		widget.win.move(0, 0)
 	if ida=="about":
 		'''launch About dialog
 		ida==about فتح صندوق حوار عن البرنامج'''
