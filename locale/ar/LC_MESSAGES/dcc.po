@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: debi control center\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-28 17:20+0200\n"
+"PO-Revision-Date: 2012-12-28 17:20+0200\n"
+"Last-Translator: \n"
+"Language-Team: Mohamed Mohsen <Linuxer9@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Arabic\n"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:30
+msgid "debi GNU/Linux control center"
+msgstr "مركز تحكم debi GNU/Linux"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:58
+msgid "no modules found!"
+msgstr "لا توجد أي إضافات !"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:91
+msgid "System information"
+msgstr "معلومات النظام"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:92
+msgid "This is a quick overview of your system.."
+msgstr "هنا نظرة سريعة على النظام"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:93
+msgid "Computer"
+msgstr "الحاسوب"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:94
+msgid "Operating system: "
+msgstr "نظام التشغيل: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:95
+msgid "Processor: "
+msgstr "المعالج: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:96
+msgid "Archticture: "
+msgstr "المعمارية: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:97
+msgid "Ram: "
+msgstr "الذاكرة العشوائية: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:98
+msgid "Devices"
+msgstr "الأجهزة"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:99
+msgid "Graphics card: "
+msgstr "بطاقة الرسوميات: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:100
+msgid "Audio adapter: "
+msgstr "كارت الصوت: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:101
+msgid "Ethernet: "
+msgstr "كارت الشبكة: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:102
+msgid "Misc"
+msgstr "متفرق"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:103
+msgid "Host name: "
+msgstr "اسم المضيف: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:104
+msgid "Kernel: "
+msgstr "النواة: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:105
+msgid "Desktop: "
+msgstr "سطح المكتب: "
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:106
+msgid "Software & Packages"
+msgstr "البرمجيات والحزم"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:107
+msgid "Working with software, packages and sources.."
+msgstr "التعامل مع البرمجيات والحزم وتثبيتها وإدارة المصادر.."
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:108
+msgid "Desktop"
+msgstr "سطح المكتب"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:109
+msgid "Manage your desktop environment!"
+msgstr "أدِر بيئة سطح المكتب"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:110
+msgid "System"
+msgstr "النظام"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:111
+msgid "This is a set of useful tools for your system.."
+msgstr "هنا مجموعة من الأدوات المفيدة لإدارة النظام.."
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:112
+msgid "Hardware"
+msgstr "العتاد"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:113
+msgid "here you can use Hardware tools, install drivers..etc"
+msgstr "هنا يمكنك إستخدام أدوات العتاد وتثبيت التعاريف وغيرها"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:114
+msgid "Other tools"
+msgstr "أدوات أخرى"
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:115
+msgid "all other tools that aren't related to any of these categories.."
+msgstr "هنا جميع الأدوات التي لاتقع تحت أي تصنيف مما سبق.."
+
+#: /home/debi/dcc/New/debi-control-center2/main.py:129
+msgid "debi control center"
+msgstr "مركز تحكم debi GNU/Linux"
+
