@@ -34,7 +34,7 @@ def functions(widget, nom,ida):
 def get_info(info):
 	'''this function is to get computer information
 	get_info() هذه الدالة لجلب معلومات الجهاز '''
-	if info=="operatingsystem": return open('/etc/issue', 'r').read().split('\\n')[0]
+	if info=="os": return open('/etc/issue', 'r').read().split('\\n')[0]
 	if info=="arc": return os.uname()[4]
 	if info=="host": return os.uname()[1]	
 	if info=="kernel": return os.uname()[0] +' '+ os.uname()[2]
