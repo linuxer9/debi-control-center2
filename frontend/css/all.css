@@ -154,6 +154,8 @@ form,fieldset{
 }
 #launcher img {
 	opacity: 1;
+	height: 48px;
+	width: 48px;
 }
 #launcher:hover img {
 	opacity: 0.8;

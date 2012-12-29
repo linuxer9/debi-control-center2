@@ -6,7 +6,7 @@ figure {
 html {height:100%; overflow-x :hidden;}
 body {
 	margin:0;
-	font:12px/15px "Ubuntu", "Lucida Grande", sans-serif;
+	font:12px/15px "Ubuntu", "KacstOne", "Lucida Grande", sans-serif;
 	color:#8a8a8a;
 	min-width:1000px;
 	background:#fff;
@@ -166,6 +166,8 @@ form,fieldset{
 }
 #launcher img {
 	opacity: 1;
+	height: 48px;
+	width: 48px;
 }
 #launcher:hover img {
 	opacity: 0.8;
