@@ -1,5 +1,7 @@
 [module]
-name = Synaptic
-ico = example.png
-desc = Packages Manager
+name = Synaptic Packages Manager
+name[ar] = مدير الحزم Synaptic
+ico = synaptic.png
+desc = Add or remove packages and programs
+desc[ar] = إضافة وإزالة الحزم والبرامج
 command = gksu synaptic

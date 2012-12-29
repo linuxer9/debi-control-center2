@@ -1,0 +1,7 @@
+[module]
+name = Orphaned Packages
+name[ar] = الحزم اليتيمة
+ico = orphaned.png
+desc = remove and clean orphaned packages 
+desc[ar] = إزالة وتنظيف الحزم اليتيمة
+command = gksu gtkorphan

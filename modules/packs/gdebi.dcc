@@ -1,0 +1,7 @@
+[module]
+name = Install deb files
+name[ar] = تثبيت حزم deb
+ico = gdebi.png
+desc = install local deb packages
+desc[ar] = تثبيت حزم deb المحلية
+command = gdebi

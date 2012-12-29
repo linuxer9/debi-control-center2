@@ -1,0 +1,7 @@
+[module]
+name = Software sources
+name[ar] = مصادر البرمجيات
+ico = sources.png
+desc = change software sources and repositories
+desc[ar] = تغيير مصادر البرمجيات والمستودعات
+command = gksu software-properties-gtk
