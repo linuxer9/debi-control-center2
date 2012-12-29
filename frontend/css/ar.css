@@ -6,12 +6,13 @@ figure {
 html {height:100%; overflow-x :hidden;}
 body {
 	margin:0;
-	font:12px/15px "Ubuntu", "KacstOne", "Lucida Grande", sans-serif;
+	font:12px/15px sans;
 	color:#8a8a8a;
 	min-width:1000px;
 	background:#fff;
 	height:100%;
 }
+
 img {border-style:none;}
 a {
 	color:#8a8a8a;
@@ -21,7 +22,7 @@ a:hover {text-decoration:none;}
 input,
 textarea,
 select {
-	font:100% arial,sans-serif;
+	font:100% sans;
 	vertical-align:middle;
 	color:#8a8a8a;
 }
@@ -93,7 +94,7 @@ form,fieldset{
 	right:-3px;
 	top:-8px;
 	color:#fff;
-	font:bold 10px/18px Arial, Helvetica, sans-serif;
+	font:bold 10px/18px sans;
 	width:20px;
 	height:20px;
 	background: #4c95cd;
@@ -124,7 +125,7 @@ form,fieldset{
 #solgan {
     float: right;
     padding-right: 10px;
-    padding-left: 20px;
+    padding-left: 5px;
     position: relative;
 }
 #launcher {
@@ -154,13 +155,13 @@ form,fieldset{
 #launcher h3 {
     float: left;
     margin-top: -46px;
-    margin-right: 48px;
+    margin-right: 55px;
     position: absolute;
     color: #000000;
     display: block;
 }
 #launcher span {
-    margin-right: 48px;
+    margin-right: 55px;
     margin-top: -30px;
     position: absolute;
 }
@@ -216,7 +217,7 @@ form,fieldset{
 	padding:0;
 	position:relative;
 	z-index:2;
-	font:bold 11px/13px Ubuntu, sans-serif;
+	font:bold 11px/13px sans;
 	direction: rtl;
 }
 .buttons li {
