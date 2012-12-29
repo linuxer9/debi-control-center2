@@ -13,6 +13,7 @@ gettext.textdomain('dcc')
 _ = gettext.gettext
 
 app_dir=os.getcwd()
+lang=getdefaultlocale()[0].split('_')[0]
 def execute(command):
   	'''this execute shell command and return output
 	execute() هذه الدالة لتنفيذ أمر بالطرفية واخراج الناتج'''
@@ -67,18 +68,27 @@ def get_modules(section):
 			'''Know if the icon exists
 			ico معرفة إذا كانت الأيقونة موجودة بالمتغير '''
 			ico =parser.get('module', 'ico')
-			if os.path.exists("%s/frontend/icons/modules/" %(app_dir) + ico):
-				ico="file://%s/frontend/icons/modules/" %(app_dir) + ico
-			else:
-				ico="file://%s/frontend/icons/modules/notfound.png"
-			pro+='''<div id="launcher" onclick="changeTitle('pro_%s')">
-			<img src="%s" />
+			#check if the icon exists
+			ico="icons/modules/" + ico
+			
+			#check if the name has a different language
+			if parser.has_option('module', 'name[%s]' %(lang)):
+				name = parser.get('module', 'name[%s]' %(lang))
+			else: name = parser.get('module', 'name')
+			
+			#check if the description has a different language
+			if parser.has_option('module', 'desc[%s]' %(lang)):
+				desc = parser.get('module', 'desc[%s]' %(lang))
+			else: desc = parser.get('module', 'desc')
+			
+			pro+='''<div id="launcher" onclick="changeTitle('pro_%s')" >
+			<img src="%s" onerror='this.src = "icons/modules/notfound.png"'/>
 			<h3>%s</h3>
 			<span>%s</span>
 			</div>''' % ( parser.get('module', 'command'),
-			ico, 
-			parser.get('module', 'name'), 
-			parser.get('module', 'desc') )
+			ico,   #icon 
+			name,  #name 
+			desc ) #description 
 		return pro
 		
 def frontend_fill():
@@ -87,7 +97,7 @@ def frontend_fill():
 	
 	html=open(app_dir + '/frontend/default.html', 'r')
 	html=html.read()
-	if 'ar_' in getdefaultlocale()[0]:
+	if lang=="ar":
 		html=html.replace("{css}", "ar")
 	else:
 		html=html.replace("{css}", "all")
