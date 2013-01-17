@@ -34,10 +34,13 @@ def functions(widget, nom,ida):
         	about.set_comments(_("debi GNU/Linux control center"))
         	about.set_website("http://debi.sf.net")
         	about.run()
-        	about.destroy()
+
 	if "pro_" in ida:
 		#TODO: التحقق من أن البرنامج يعمل \موجود وإظهار رسالة خطأ عند عدم تنفيذه.
-		execute(ida.split('pro_')[1])
+		if "pro_admin_" in ida:
+			execute("gksu-polkit " + ida.split('pro_admin_')[1])
+		else:
+			execute(ida.split('pro_')[1])
 
 def get_info(info):
 	'''this function is to get computer information
@@ -81,11 +84,16 @@ def get_modules(section):
 				desc = parser.get('module', 'desc[%s]' %(lang))
 			else: desc = parser.get('module', 'desc')
 			
+			if parser.has_option('module', 'admin'):
+				if parser.get('module', 'admin') == "true":
+					command = "admin_" + parser.get('module', 'command')
+			else: command = parser.get('module', 'command')
+				
 			pro+='''<div id="launcher" onclick="changeTitle('pro_%s')" >
 			<img src="%s" onerror='this.src = "icons/modules/notfound.png"'/>
 			<h3>%s</h3>
 			<span>%s</span>
-			</div>''' % ( parser.get('module', 'command'),
+			</div>''' % ( command, #command
 			ico,   #icon 
 			name,  #name 
 			desc ) #description 
@@ -95,8 +103,8 @@ def frontend_fill():
 	'''This function is to build all the html document viewed
 	frontend_fill() هذه الدالة لبناء ملف الواجهة html '''
 	
-	html=open(app_dir + '/frontend/default.html', 'r')
-	html=html.read()
+	filee=open(app_dir + '/frontend/default.html', 'r')
+	html=filee.read()
 	if lang=="ar":
 		html=html.replace("{css}", "ar")
 	else:
@@ -132,7 +140,7 @@ def frontend_fill():
 	#categories أقسام الإضافات
 	for i in ['packs', 'system', 'desktop', 'hardware', 'other'] :
 		html=html.replace("{%s_list}" %(i), get_modules(i))
-
+	filee.close()
 	return html
 	
 def main():	
