@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <head>
 	<meta charset="utf-8" >
-	<link media="all" rel="stylesheet" type="text/css" href="css/all.css" />
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link media="all" rel="stylesheet" type="text/css" href="css/{css}.css" />
 	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.7.2.min.js"><\/script>');</script>
 	<script type="text/javascript" src="js/jquery.main.js"></script>
 
@@ -17,32 +16,32 @@
 						<article>
 							<div class="text-section">
 								<img id="solgan" src="icons/sys_info.png" />
-								<h1>System information</h1>
-								<p>This is a quick overview of your system..</p>
+								<h1>{string_1}</h1>
+								<p>{string_2}</p>
 							</div>
 						</article>
 						<div id="contents">
-						<h1>Computer</h1>
-						<p>Operating system: <span id="ty">{os}</span></p>
-						<p>Processor: <span id="ty">{processor}</span></p>
-						<p>Archticture: <span id="ty">{arc}</span></p>
-						<p>Ram: <span id="ty">{mem}</span></p>
-						<h1>Devices</h1>
-						<p>Graphics card: <span id="ty">{gfx}</span></p>
-						<p>Audio adapter: <span id="ty">{audio}</span></p>
-						<p>Ethernet : <span id="ty">{eth}</span></p>
-						<h1>Misc</h1>
-						<p>Host name : <span id="ty">{host}</span></p>
-						<p>Kernel : <span id="ty">{kernel}</span></p>
-						<p>Desktop : <span id="ty">{desk}</span></p>
+						<h1>{string_3}</h1>
+						<p>{string_4}<span id="ty">{os}</span></p>
+						<p>{string_5}<span id="ty">{processor}</span></p>
+						<p>{string_6}<span id="ty">{arc}</span></p>
+						<p>{string_7}<span id="ty">{mem}</span></p>
+						<h1>{string_8}</h1>
+						<p>{string_9}<span id="ty">{gfx}</span></p>
+						<p>{string_10}<span id="ty">{audio}</span></p>
+						<p>{string_11}<span id="ty">{eth}</span></p>
+						<h1>{string_12}</h1>
+						<p>{string_13}<span id="ty">{host}</span></p>
+						<p>{string_14}<span id="ty">{kernel}</span></p>
+						<p>{string_15}<span id="ty">{desk}</span></p>
 						</div>
 					</div>
 					<div id="tab-2" class="tab">
 						<article>
 							<div class="text-section">
 								<img id="solgan" src="icons/packages.png" />
-								<h1>Software & Packages</h1>
-								<p>Working with software, packages and sources..</p>
+								<h1>{string_16}</h1>
+								<p>{string_17}</p>
 							</div>
 						</article>
 						<div id="contents">
@@ -54,8 +53,8 @@
 						<article>
 							<div class="text-section">
 								<img id="solgan" src="icons/desktop.png" />
-								<h1>Desktop</h1>
-								<p>Manage your desktop environment!</p>
+								<h1>{string_18}</h1>
+								<p>{string_19}</p>
 							</div>
 						</article>
 						<div id="contents">
@@ -66,8 +65,8 @@
 						<article>
 							<div class="text-section">
 								<img id="solgan" src="icons/system.png" />
-								<h1>System</h1>
-								<p>This is a set of useful tools for your system..</p>
+								<h1>{string_20}</h1>
+								<p>{string_21}</p>
 							</div>
 						</article>
 						<div id="contents">
@@ -78,8 +77,8 @@
 						<article>
 							<div class="text-section">
 								<img id="solgan" src="icons/hardware.png" />
-								<h1>Hardware</h1>
-								<p>here you can use Hardware tools, install drivers..etc</p>
+								<h1>{string_22}</h1>
+								<p>{string_23}</p>
 							</div>
 						</article>
 						<div id="contents">
@@ -90,8 +89,8 @@
 						<article>
 							<div class="text-section">
 								<img id="solgan" src="icons/other.png" />
-								<h1>Other tools</h1>
-								<p>all other tools that aren't related to any of these categories..</p>
+								<h1>{string_24}</h1>
+								<p>{string_25}</p>
 							</div>
 						</article>
 						<div id="contents">
@@ -106,28 +105,22 @@
 			<strong class="logo"><a onclick="changeTitle('about')" href="#"></a></strong>
 			<ul class="tabset buttons">
 				<li class="active">
-					<a href="#tab-1" class="ico1"><span>System information</span><em></em></a>
-					
+					<a href="#tab-1" class="ico1"><span>{string_1}</span><em></em></a>
 				</li>
 				<li>
-					<a href="#tab-2" class="ico2"><span>Software & Packages</span><em></em></a>
-					
+					<a href="#tab-2" class="ico2"><span>{string_16}</span><em></em></a>
 				</li>
 				<li>
-					<a href="#tab-3" class="ico3"><span>Desktop</span><em></em></a>
-					
+					<a href="#tab-3" class="ico3"><span>{string_18}</span><em></em></a>
 				</li>
 				<li>
-					<a href="#tab-4" class="ico4"><span>System</span><em></em></a>
-					
+					<a href="#tab-4" class="ico4"><span>{string_20}</span><em></em></a>
 				</li>
 				<li>
-					<a href="#tab-5" class="ico5"><span>Hardware</span><em></em></a>
-					
+					<a href="#tab-5" class="ico5"><span>{string_22}</span><em></em></a>
 				</li>
 				<li>
-					<a href="#tab-6" class="ico6"><span>Other tools</span><em></em></a>
-					
+					<a href="#tab-6" class="ico6"><span>{string_24}</span><em></em></a>
 				</li>
 			</ul>
 			<span class="shadow"></span>
