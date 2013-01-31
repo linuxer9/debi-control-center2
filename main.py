@@ -38,7 +38,7 @@ def functions(widget, nom,ida):
 	if "pro_" in ida:
 		#TODO: التحقق من أن البرنامج يعمل \موجود وإظهار رسالة خطأ عند عدم تنفيذه.
 		if "pro_admin_" in ida:
-			execute("gksu-polkit " + ida.split('pro_admin_')[1])
+			execute("gksu " + ida.split('pro_admin_')[1])
 		else:
 			execute(ida.split('pro_')[1])
 
