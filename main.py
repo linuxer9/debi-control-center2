@@ -50,11 +50,17 @@ def get_info(info):
 	if info=="host": return os.uname()[1]	
 	if info=="kernel": return os.uname()[0] +' '+ os.uname()[2]
 	if info=="processor": return execute("cat /proc/cpuinfo | grep 'model name'").split(':')[1]
-	if info=="mem": return execute("free -m|awk '/^Mem:/{print $2}'") + 'MB'
-	if info=="gfx": return execute("lspci |grep VGA").split('controller:')[1].split('(rev')[0]
-	if info=="audio": return execute("lspci |grep Audio").split('device:')[1].split('(rev')[0]
-	if info=="eth": return execute("lspci |grep Ethernet").split('controller:')[1].split('(rev')[0]
+	if info=="mem": 
+		mem = execute("free -m|awk '/^Mem:/{print $2}'")
+		if  float(mem) > 1024:
+			return str(round(float(mem) / 1024)) + " GB"
+		else:
+			return mem + " MB"
+	if info=="gfx": return execute("lspci |grep VGA").split('controller:')[1].split('(rev')[0].split(',')[0]
+	if info=="audio": return execute("lspci |grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
+	if info=="eth": return execute("lspci |grep Ethernet").split('controller:')[1].split('(rev')[0].split(',')[0]
 	if info=="desk": return execute("echo $XDG_CURRENT_DESKTOP")
+
 
 def get_modules(section):
 	'''this function is to get all modules in the dir "section" 
