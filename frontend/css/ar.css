@@ -11,6 +11,7 @@ body {
 	min-width:1000px;
 	background:#fff;
 	height:100%;
+
 }
 
 img {border-style:none;}
@@ -139,6 +140,8 @@ form,fieldset{
     padding-top: 5px;
     position: relative;
     cursor:pointer;
+    transition: all .50s ease-in-out;
+    -webkit-transition: all .50s ease-in-out;
 }
 
 #launcher:hover {
@@ -267,6 +270,7 @@ form,fieldset{
     overflow: hidden;
     text-indent: 22px;
     width: 150px;
+
 }
 .buttons em {
     background: url("../images/bg-shadow.png") repeat-y scroll 0 0 transparent;
