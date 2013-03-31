@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 import gtk
 import webkit
+import subprocess
 import os
 from ConfigParser import SafeConfigParser
 from locale import getdefaultlocale
 import gettext
+from time import sleep
 if not os.path.isdir("./locale/"):
 	gettext.bindtextdomain('dcc', '/usr/share/locale/')
 else:
@@ -14,14 +16,20 @@ _ = gettext.gettext
 
 app_dir=os.getcwd()
 lang=getdefaultlocale()[0].split('_')[0]
-def execute(command):
+def execute(command, ret = True):
   	'''this execute shell command and return output
 	execute() هذه الدالة لتنفيذ أمر بالطرفية واخراج الناتج'''
-	p = os.popen(command)
-	return p.readline()
-	p.close
+		
+	if ret == True :
+		p = os.popen(command)
+		return p.readline()
+		p.close
+	else:
+		p = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
+    
 def functions(widget, nom,ida):
+	
 	'''This function is to receive functions from webkit
 	functions(widget, nom,ida) لاستقبال الأوامر والدوال من المتصفح'''
 	if ida=="about":
@@ -29,18 +37,46 @@ def functions(widget, nom,ida):
 		ida==about فتح صندوق حوار عن البرنامج'''
 		about = gtk.AboutDialog()
         	about.set_program_name("debi control center")
-        	about.set_version("0.1")
-        	about.set_copyright("Mohamed Mohsen")
+        	about.set_version("0.5")
+        	about.set_license('''This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+MA 02110-1301, USA. ''')
+        	about.set_authors(["Mohamed Mohsen <linuxer9@gmail.com>"])
         	about.set_comments(_("debi GNU/Linux control center"))
         	about.set_website("http://debi.sf.net")
+        	about.set_logo(gtk.gdk.pixbuf_new_from_file("icon.svg"))
+        	
         	about.run()
+        	about.destroy()
 
-	if "pro_" in ida:
+	if ida.startswith("pro_"):
 		#TODO: التحقق من أن البرنامج يعمل \موجود وإظهار رسالة خطأ عند عدم تنفيذه.
-		if "pro_admin_" in ida:
-			execute("gksu " + ida.split('pro_admin_')[1])
-		else:
-			execute(ida.split('pro_')[1])
+		#if ida.startswith("pro_admin_"):
+			#execute("gksu " + ida.split('pro_admin_')[1], ret=False)
+		#else:
+		execute(ida.split('pro_')[1], ret=False)
+	if ida == "theme_browse":
+		
+		dialog = gtk.FileChooserDialog("Open..", None,
+   	gtk.FILE_CHOOSER_ACTION_OPEN, (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+		dialog.set_default_response(gtk.RESPONSE_OK)
+		response = dialog.run()
+		if response == gtk.RESPONSE_OK:
+		    browser.execute_script('document.getElementById("file").value = "%s" ' %(dialog.get_filename()))
+		elif response == gtk.RESPONSE_CANCEL:
+		    print 'Closed, no files selected'
+		dialog.destroy()
 
 def get_info(info):
 	'''this function is to get computer information
@@ -60,7 +96,6 @@ def get_info(info):
 	if info=="audio": return execute("lspci |grep Audio").split('device:')[1].split('(rev')[0].split(',')[0]
 	if info=="eth": return execute("lspci |grep Ethernet").split('controller:')[1].split('(rev')[0].split(',')[0]
 	if info=="desk": return execute("echo $XDG_CURRENT_DESKTOP")
-
 
 def get_modules(section):
 	'''this function is to get all modules in the dir "section" 
@@ -90,10 +125,13 @@ def get_modules(section):
 				desc = parser.get('module', 'desc[%s]' %(lang))
 			else: desc = parser.get('module', 'desc')
 			
-			if parser.has_option('module', 'admin'):
-				if parser.get('module', 'admin') == "true":
-					command = "admin_" + parser.get('module', 'command')
-			else: command = parser.get('module', 'command')
+			#if parser.has_option('module', 'root'):
+				#if parser.get('module', 'root') == "true":
+					#command = "admin_" + parser.get('module', 'command')
+					#command = "gksu " + parser.get('module', 'command')
+			#else:
+			#admin or root weren't used from the version 0.3 
+			command = parser.get('module', 'command')
 				
 			pro+='''<div id="launcher" onclick="changeTitle('pro_%s')" >
 			<img src="%s" onerror='this.src = "icons/modules/notfound.png"'/>
@@ -140,6 +178,18 @@ def frontend_fill():
 	html=html.replace("{string_23}", _("here you can use Hardware tools, install drivers..etc"))
 	html=html.replace("{string_24}", _("Other tools"))
 	html=html.replace("{string_25}", _("all other tools that aren't related to any of these categories.."))
+	html=html.replace("{string_26}", _("forum"))
+	html=html.replace("{string_27}", _("help"))
+	html=html.replace("{string_28}", _("Useful applications"))
+	html=html.replace("{string_29}", _("here you can install some applications that are hard to setup..."))
+	html=html.replace("{string_30}", _("Install GTK themes"))
+	html=html.replace("{string_31}", _("select the theme you want to install in tar.gz "))
+	html=html.replace("{string_32}", _("Get new GTK themes !"))
+	html=html.replace("{string_33}", _("Browse"))
+	html=html.replace("{string_34}", _("install"))
+	html=html.replace("{string_35}", _("Install another Desktop environment"))
+	html=html.replace("{string_36}", _("here you can install another desktop environments ... select one to install"))
+
 	#system information معلومات الجهاز
 	for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'eth', 'kernel', 'host', 'desk'] :
 		html=html.replace("{%s}" %(i), get_info(i))
@@ -148,8 +198,25 @@ def frontend_fill():
 		html=html.replace("{%s_list}" %(i), get_modules(i))
 	filee.close()
 	return html
+#splash screen
+def spl_scr():
+	splash=gtk.Window(gtk.WINDOW_TOPLEVEL)
+	splash.set_position(gtk.WIN_POS_CENTER)
+	splash.set_decorated(False)
+	image = gtk.Image()
+	image.set_from_file(app_dir + '/frontend/images/splash.png')
+	splash.add(image)
+	splash.show_all()
+	while gtk.events_pending():
+		gtk.main_iteration()
+	frontend = frontend_fill()
+	main(frontend)
+	sleep(1)
+	splash.destroy()
+	gtk.main()
 	
-def main():	
+def main(frontend):
+	global browser
 	#TODO: تنظيم أفضل لهذه الأوامر
 	window = gtk.Window()
 	window.connect('destroy', gtk.main_quit)
@@ -158,17 +225,18 @@ def main():
 	window.set_resizable(False)
 	window.set_position(gtk.WIN_POS_CENTER)
 	browser = webkit.WebView()
-	browser.connect("title-changed", functions)
-	browser.load_html_string(frontend_fill(), 'file://%s/frontend/' %(app_dir))
-	#no right click menu
-	settings = browser.get_settings()
-	settings.set_property('enable-default-context-menu', False)
-	browser.set_settings(settings) 
 	swindow = gtk.ScrolledWindow()
 	window.add(swindow)
 	swindow.add(browser)
 	window.show_all()
+	browser.connect("title-changed", functions)
+	browser.load_html_string(frontend, 'file://%s/frontend/' %(app_dir))
+	#no right click menu
+	settings = browser.get_settings()
+	settings.set_property('enable-default-context-menu', False)
+	browser.set_settings(settings) 
+
 	
-main()
-gtk.main()
+spl_scr()
+
 
