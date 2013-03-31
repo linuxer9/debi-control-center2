@@ -2,7 +2,8 @@
 <head>
 	<meta charset="utf-8" >
 	<link media="all" rel="stylesheet" type="text/css" href="css/{css}.css" />
-	<script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src="js/jquery-1.7.2.min.js"><\/script>');</script>
+	
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery.main.js"></script>
 
 </head>
@@ -34,6 +35,10 @@
 						<p>{string_13}<span id="ty">{host}</span></p>
 						<p>{string_14}<span id="ty">{kernel}</span></p>
 						<p>{string_15}<span id="ty">{desk}</span></p>
+						<br>
+						<div class="link"><img src="images/forum.svg" ><p>{string_26}</p></div>
+						<div class="link"><img src="images/help.svg" ><p>{string_27}</p></div>
+						 
 						</div>
 					</div>
 					<div id="tab-2" class="tab">
@@ -42,12 +47,28 @@
 								<img id="solgan" src="icons/packages.png" />
 								<h1>{string_16}</h1>
 								<p>{string_17}</p>
+								<img class="help" src="images/help.svg" >
 							</div>
 						</article>
 						<div id="contents">
-							{packs_list}
-
+						{packs_list}
+						<br><br>					
+						<br>
+						<div id="box">
+						<div id="box_title">{string_28}</div>
+						<div id="box_content">
+						<p>{string_29} ...</p>
+						<div align="center">
+						<a href="#" class="tooltip" ><span>skype</span><img src="icons/skype.png"   ></a>
+						<a href="#" class="tooltip"><span>teamviewer</span><img src="icons/teamviewer.png"  ></a>
+						<a href="#" class="tooltip"><span>virtualbox</span><img src="icons/virtualbox.png"  ></a>
+						<a href="#" class="tooltip"><span>google earth</span><img src="icons/google-earth.png"  ></a>
 						</div>
+						
+						</div>
+						</div>
+						</div>
+						
 					</div>
 					<div id="tab-3" class="tab">
 						<article>
@@ -55,10 +76,33 @@
 								<img id="solgan" src="icons/desktop.png" />
 								<h1>{string_18}</h1>
 								<p>{string_19}</p>
+								<img class="help" src="images/help.svg" >
 							</div>
 						</article>
 						<div id="contents">
 						{desktop_list}
+						<br><br>
+						<div id="box">
+						<div id="box_title">{string_30}</div>
+						<div id="box_content"><p>{string_31}</p>
+						<p><input class="input-box" id="file" size="40"> </input> <input onclick="changeTitle('theme_browse')" class="input-submit" type="submit" value="{string_33}"><input type="submit" value="{string_34}">
+						
+						<a href="#" >{string_32}</a></a>
+						</p>
+</div>				
+						</div>
+						<div id="box">
+						<div id="box_title">{string_35}</div>
+						<div id="box_content"><p>{string_36}</p>
+						<div align="center">					
+						<a href="#" class="tooltip"><span>KDE</span><img src="icons/kde.png" alt="KDE" ></a>
+						<a href="#" class="tooltip"><span>GNOME</span><img src="icons/gnome.png" alt="GNOME" ></a>	
+						<a href="#" class="tooltip"><span>xfce</span><img src="icons/xfce.png" alt="xfce" ></a>	
+						<a href="#" class="tooltip"><span>Compiz</span><img src="icons/compiz.png" alt="compix" ></a>	
+						<a href="#" class="tooltip"><span>LXDE</span><img src="icons/lxde.png" alt="LXDE" ></a>
+						</div>	
+						</div>
+						</div>
 						</div>
 					</div>
 					<div id="tab-4" class="tab">
@@ -67,6 +111,7 @@
 								<img id="solgan" src="icons/system.png" />
 								<h1>{string_20}</h1>
 								<p>{string_21}</p>
+								<img class="help" src="images/help.svg" >
 							</div>
 						</article>
 						<div id="contents">
@@ -79,6 +124,7 @@
 								<img id="solgan" src="icons/hardware.png" />
 								<h1>{string_22}</h1>
 								<p>{string_23}</p>
+								<img class="help" src="images/help.svg" >
 							</div>
 						</article>
 						<div id="contents">
@@ -123,7 +169,7 @@
 					<a href="#tab-6" class="ico6"><span>{string_24}</span><em></em></a>
 				</li>
 			</ul>
-			<span class="shadow"></span>
+			
 		</aside>
 	</div>
 <script type="text/javascript">
